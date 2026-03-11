@@ -115,3 +115,9 @@ def print_embedding_summary(embedded_chunks: list[dict], failed: int) -> None:
     print(f"\n Sample embedding (first 5 dims of chunk_0):")
     print(f"{first_emb}")
     print(f"... ({sample_dim} dimensions total)")
+
+def embed_query(text: str) -> list[float]:
+    result = embed_single_batch([text])
+    if result and len(result) > 0:
+        return result[0]
+    raise Exception("Failed to embed query text")

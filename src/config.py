@@ -25,3 +25,11 @@ EMBEDDING_BATCH_SIZE = 16 #HF limit
 
 CHROMA_PERSIST_DIR = f"{DATA_DIR}/chroma_db"
 COLLECTION_NAME = "wikipedia_articles"
+
+LLM_MODEL = "Qwen/Qwen2.5-7B-Instruct"
+LLM_API_URL = "https://router.huggingface.co/v1/chat/completions"
+LLM_MAX_TOKENS = 1024
+LLM_TEMPERATURE = 0.3
+TOP_K_RESULTS = 5
+
+SIMILARITY_THRESHOLD = 0.3
