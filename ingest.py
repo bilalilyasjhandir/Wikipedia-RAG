@@ -30,7 +30,7 @@ def main():
         return
     print(f"\n Step 2 Complete! {len(chunks)} chunks ready for embedding.\n")
 
-    print("\n STEP 3: Generating Embeddings using intfloat/multilingual-e5-large")
+    print("\n STEP 3: Generating Embeddings using all-MiniLM-L6-v2")
     if os.path.exists("data/embeddings.json"):
         print("Embeddings already generated! Loading from file...")
         from src.embedder import load_embeddings

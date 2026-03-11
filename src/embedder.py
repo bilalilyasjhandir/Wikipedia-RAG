@@ -2,7 +2,7 @@ import requests
 import json
 import os
 import time
-from src.config import (HF_API_TOKEN, EMBEDDING_API_URL, EMBEDDING_BATCH_SIZE, EMBEDDING_DIMENSIONS, EMBEDDINGS_FILE, DATA_DIR,)
+from src.config import (EMBEDDING_MODEL, HF_API_TOKEN, EMBEDDING_API_URL, EMBEDDING_BATCH_SIZE, EMBEDDING_DIMENSIONS, EMBEDDINGS_FILE, DATA_DIR,)
 
 HEADERS = {
     "Authorization": f"Bearer {HF_API_TOKEN}",
@@ -108,7 +108,7 @@ def print_embedding_summary(embedded_chunks: list[dict], failed: int) -> None:
     print(f"Chunks embedded: {len(embedded_chunks)}")
     print(f"Failed chunks: {failed}")
     print(f"Embedding dimensions: {sample_dim}")
-    print(f"Model: intfloat/multilingual-e5-large")
+    print(f"Model: {EMBEDDING_MODEL}")
     print(f"Saved to: {EMBEDDINGS_FILE}")
 
     first_emb = embedded_chunks[0]["embedding"][:5]
