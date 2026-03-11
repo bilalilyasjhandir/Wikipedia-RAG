@@ -1,7 +1,8 @@
 import os
 from src.wikipedia_fetcher import fetch_all_articles, load_articles
 from src.chunker import chunk_articles, load_chunks
-from src.embedder import embed_chunks
+from src.embedder import embed_chunks, load_embeddings
+from src.vector_store import store_embeddings
 from src.config import TOPIC, NUM_ARTICLES
 
 def main():
@@ -40,6 +41,15 @@ def main():
         print("\n Pipeline failed at Step 3. No embeddings generated.")
         return
     print(f"\n Step 3 Complete! {len(embedded_chunks)} chunks embedded.\n")
+    
+    print("\n STEP 4: Storing in ChromaDB Vector Database")
+    collection = store_embeddings(embedded_chunks)
+    if not collection:
+        print("\n Pipeline failed at Step 4. Vector store error.")
+        return
+    print(f"\n Step 4 Complete! Vector store ready for queries.\n")
+
+    print("INGESTION PIPELINE COMPLETE!")
 
 if __name__ == "__main__":
     main()

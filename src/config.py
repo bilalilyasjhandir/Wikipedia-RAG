@@ -22,3 +22,6 @@ EMBEDDING_MODEL = "intfloat/multilingual-e5-large"
 EMBEDDING_API_URL = f"https://router.huggingface.co/hf-inference/models/{EMBEDDING_MODEL}"
 EMBEDDING_DIMENSIONS = 1024
 EMBEDDING_BATCH_SIZE = 16 #HF limit
+
+CHROMA_PERSIST_DIR = f"{DATA_DIR}/chroma_db"
+COLLECTION_NAME = "wikipedia_articles"
